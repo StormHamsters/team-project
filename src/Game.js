@@ -3,6 +3,7 @@ import Input from "./Input";
 import Player from "./Player";
 import Spawn from "./Spawn";
 import World from "./World";
+import Stairs from "./Stairs";
 
 //after every input, the DOM re-renders using the functions here
 
@@ -28,6 +29,8 @@ const Game = ({ width, height, tilesize }) => {
     newWorld.moveToSpace(world.player);
     let spawn = new Spawn(newWorld);
     spawn.spawnLoot(10);
+    spawn.spawnMonsters(6);
+    spawn.spawnStairs();
     setWorld(newWorld);
   }, []);
 
@@ -47,12 +50,24 @@ const Game = ({ width, height, tilesize }) => {
     world.draw(context);
   });
   return (
-    <canvas
-      ref={canvasRef}
-      width={width * tilesize}
-      height={height * tilesize}
-      style={{ border: "1px solid black", background: "dimgrey" }}
-    ></canvas>
+    <>
+      <canvas
+        ref={canvasRef}
+        width={width * tilesize}
+        height={height * tilesize}
+        style={{ border: "1px solid black", background: "dimgrey" }}
+      ></canvas>
+      <ul>
+        {world.player.inventory.map((item, index) => (
+          <li key={index}>{item.attributes.name}</li>
+        ))}
+      </ul>
+      <ul>
+        {world.history.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </>
     // we are creating a canvas container element to represent our game world. initialized with the values discussed before.
     // also, we connect it to our instance of the game canvas by 'referencing' our canvasRef function created up top.
   );
