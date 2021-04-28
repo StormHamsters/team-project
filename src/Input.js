@@ -1,3 +1,9 @@
+import Music from "./Music";
+import Player from "./Player";
+
+// constructor for music class
+let audio = new Music();
+
 class Input {
   observer = [];
 
@@ -15,6 +21,8 @@ class Input {
 
   handleKeys = (e) => {
     e.preventDefault();
+    //play walk sound when key is pressed
+    audio.sound.play("walk");
     switch (e.keyCode) {
       case 37:
         this.broadcast("move", { x: -1, y: 0 });

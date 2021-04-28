@@ -4,6 +4,13 @@ import Player from "./Player";
 import Spawn from "./Spawn";
 import World from "./World";
 import Stairs from "./Stairs";
+import Music from "./Music";
+
+// constructor for music class
+let audio = new Music();
+
+//play background music
+audio.background_music.play('background');
 
 //after every input, the DOM re-renders using the functions here
 
