@@ -1,5 +1,8 @@
 import { Map } from "rot-js";
 import Player from "./Player";
+import Music from "./Music";
+// constructor for music class
+let audio = new Music();
 
 class World {
   constructor(width, height, tilesize) {
@@ -80,6 +83,8 @@ class World {
       console.log(`Way blocked at ${tempPlayer.x}:${tempPlayer.y}!`);
     } else {
       this.player.move(dx, dy);
+      //play walk audio
+      audio.sound.play('walk');
     }
   }
   draw(context) {
@@ -106,8 +111,10 @@ class World {
 
   addToHistory(history) {
     this.history.push(history);
-    if (this.history.length > 6) this.history.shift();
+    if (this.history.length > 8) this.history.shift();
   }
+
+
 }
 
 export default World;

@@ -1,10 +1,13 @@
 import Music from "./Music";
 import Player from "./Player";
+import World from "./World";
+import Loot from "./Loot";
 
 // constructor for music class
 let audio = new Music();
 
-class Input {
+
+class Input extends Loot {
   observer = [];
 
   subscribe(fn) {
@@ -21,8 +24,7 @@ class Input {
 
   handleKeys = (e) => {
     e.preventDefault();
-    //play walk sound when key is pressed
-    audio.sound.play("walk");
+
     switch (e.keyCode) {
       case 37:
         this.broadcast("move", { x: -1, y: 0 });
@@ -48,6 +50,7 @@ class Input {
   unbindKeys() {
     document.removeEventListener("keydown", this.handleKeys);
   }
+
 }
 
 export default Input;

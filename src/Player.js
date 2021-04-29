@@ -1,11 +1,16 @@
 import Entity from "./Entity";
+
+
+
 class Player extends Entity {
   inventory = [];
   attributes = {
     name: "Player",
     ascii: "@",
     health: 10,
+    damage: 1,
   };
+
   move(dx, dy) {
     if (this.attributes.health <= 0) return;
     this.x += dx;
@@ -28,6 +33,9 @@ class Player extends Entity {
     Object.assign(newPlayer, this);
     return newPlayer;
   }
+
+
+
 }
 
 export default Player;

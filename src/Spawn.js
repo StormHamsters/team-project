@@ -26,6 +26,7 @@ const monsterTable = [
     ascii: "G",
     offset: { x: 3, y: 2 },
     health: 4,
+    damage: 1,
   },
 
   {
@@ -34,6 +35,7 @@ const monsterTable = [
     ascii: "D",
     offset: { x: 3, y: 2 },
     health: 10,
+    damage: 2,
   },
 
   {
@@ -42,6 +44,7 @@ const monsterTable = [
     ascii: "T",
     offset: { x: 3, y: 2 },
     health: 4,
+    damage: 2,
   },
 ];
 
