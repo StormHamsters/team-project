@@ -16,7 +16,7 @@ class Monster extends Entity {
       var critChance
       critChance = Math.floor(Math.random() * (100 - 1) + 1);
       //if crit condition is met
-      if(critChance > 2){
+      if(critChance > 95){
         //multiple base damage by 2
         finalDamage = baseDamage * 2;
         audio.loudSound.play("player_crit");
@@ -51,7 +51,7 @@ class Monster extends Entity {
         var enemyCritChance;
         enemyCritChance = Math.floor(Math.random() * (100 - 1) + 1);
         //check for crit and display result
-        if(enemyCritChance > 2){
+        if(enemyCritChance > 95){
           enemyFinalDamage = Math.floor(enemyBaseDamage * 1.5)
           audio.loudSound.play("enemy_crit");
           world.addToHistory(`${this.attributes.name} crit for ${enemyFinalDamage}!`);
